@@ -1,0 +1,77 @@
+{% extends 'baseback.html.twig' %}
+
+{% block body %}
+<style>
+    table , tr, th , td {
+        border: 2px solid;
+    }
+
+
+
+</style>
+
+    <div class="row" style="width: 100%;">
+        <div class="col-12">
+            <div class="card">
+                <div class="page-title-right">
+                    <ol class="breadcrumb m-0">
+                        <li class="breadcrumb-item"><a href="{{ path('listTest') }}">Test</a></li>
+                        <li class="breadcrumb-item active">Afficher</li>
+                    </ol>
+
+                </div>
+            <div class="card-body">
+                <a href="{{ path('listCours') }}"><i class="ri-arrow-left-circle-fill" style="font-size: 50px;"></i></a>
+                <h3 class="card-title">liste des Tests</h3>
+                {% for message in app.flashes('info') %}
+                    <div class="alert alert-success">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+                <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+    <tr>
+        <th>idTest</th>
+        <th>nomTest</th>
+        <th>dureTest</th>
+        <th>dateTest</th>
+        <th>Action</th>
+
+
+    </tr>
+    <a>
+        {% for j in test %}
+        <td>{{j.idT}}</td>
+        <td>{{j.nomT}}</td>
+        <td>{{j.dureT}} </td>
+        <td>{{j.dateT}} </td>
+
+
+        <td>
+            <a href="{{ path('modifierTest',{'id':j.idT}) }}" class="mr-3 text-primary" data-toggle="tooltip" data-placement="top" title="Modifier" data-original-title="Edit"><i class="mdi mdi-pencil font-size-18"></i></a>
+            <a href="{{ path('supprimerTest',{'id':j.idT}) }}" class="text-danger" data-toggle="tooltip" data-placement="top" title="Supprimer" data-original-title="Delete"><i class="mdi mdi-trash-can font-size-18"></i></a>
+        </td>
+
+        </tr>
+    </a>
+    </tr>
+    {%endfor %}
+    <div class="button-items">
+        <a  href="{{ path('ajoutTest') }}" class="btn btn-dark waves-effect waves-light" >Ajouter</a>
+    </div>
+    </tbody>
+</table>
+                <div class="button-items">
+                    <a  href="{{ path('app_quizz') }}" class="btn btn-dark waves-effect waves-light" >Quiz</a>
+                </div>
+
+                <!-- End small tables -->
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+</div>
+{% endblock %}

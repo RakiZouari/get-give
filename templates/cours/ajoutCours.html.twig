@@ -1,0 +1,66 @@
+
+{% extends 'baseback.html.twig' %}
+
+
+
+{% block content %}
+    {% form_theme f 'bootstrap_4_layout.html.twig' %}
+    <div class="row" style="width: 100%;">
+        <div class="col-12">
+            <div class="card">
+                <div class="page-title-right">
+                    <ol class="breadcrumb m-0">
+                        <li class="breadcrumb-item"><a href="{{ path('ajoutCours') }}">Cours</a></li>
+                        <li class="breadcrumb-item active">Ajouter</li>
+                    </ol>
+                </div>
+                <div class="card-body">
+                    {{ form_start(f,{'attr': {'novalidate': 'novalidate'}}) }}
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">{{ form_label(f.nomCours) }}</label>
+                        <div class="col-md-10">
+                            <input class="form-control" {{ form_widget(f.nomCours) }}
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">{{ form_label(f.typeCours) }}</label>
+                        <div class="col-md-10">
+                            <input class="form-control" {{ form_widget(f.typeCours) }}
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">{{ form_label(f.specialite) }}</label>
+                        <div class="col-md-10">
+                            <input class="form-control" {{ form_widget(f.specialite) }}
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">{{ form_label(f.nbheure) }}</label>
+                        <div class="col-md-10">
+                            <input class="form-control" {{ form_widget(f.nbheure) }}
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">{{ form_label(f.datedebut) }}</label>
+                        <div class="col-md-10">
+                            <input class="form-control" {{ form_widget(f.datedebut) }}
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">{{ form_label(f.datefin) }}</label>
+                        <div class="col-md-10">
+                            <input class="form-control" {{ form_widget(f.datefin) }}
+                        </div>
+                    </div>
+
+
+                    {{ form_end(f) }}
+                </div>
+            </div> <!-- end col -->
+        </div>
+    </div>
+
+{% endblock %}
+
+
